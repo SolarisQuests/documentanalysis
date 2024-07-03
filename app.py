@@ -89,13 +89,13 @@ def process_document(file_path):
         extracted_data = analyze_document(file_path)
         if not extracted_data:
             return {"status": "failed", "message": "No data extracted"}
-        corrected_output = process_ocr_output(extracted_data)
-        processed_date = datetime.now(pytz.timezone('UTC')).isoformat()
+        # corrected_output = process_ocr_output(extracted_data)
+        # processed_date = datetime.now(pytz.timezone('UTC')).isoformat()
         return {
             "status": "processed",
-            "json_data": corrected_output,
+            # "json_data": corrected_output,
             "ocr_output": extracted_data,
-            "processed_date": processed_date
+            # "processed_date": processed_date
         }
     except Exception as e:
         return {"status": "failed", "message": str(e)}
