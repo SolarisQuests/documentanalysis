@@ -12,6 +12,7 @@ import pytz
 import openai
 from werkzeug.utils import secure_filename
 from docx2pdf import convert
+from fastapi.middleware.cors import CORSMiddleware
 
 # Load environment variables
 load_dotenv()
@@ -106,7 +107,14 @@ def convert_docx_to_pdf(input_path, output_path):
             raise Exception(f"PDF conversion failed, output file not found: {output_path}")
     except Exception as e:
         raise
-
+app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow any origin
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 @app.get("/")
 def read_root():
     return {"status": "success"}
