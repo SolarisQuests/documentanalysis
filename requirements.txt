@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+pymongo
+azure-ai-formrecognizer
+python-dotenv
+requests
+apscheduler
+pytz
+openai==0.28
+werkzeug
+aiofiles 
+httpx
+docx2pdf
