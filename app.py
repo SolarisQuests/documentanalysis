@@ -115,7 +115,7 @@ def read_root():
 async def upload_file(file: UploadFile = File(...)):
     try:
         file_extension = os.path.splitext(file.filename)[1].lower()
-        if file_extension not in [".pdf", ".doc", ".docx"]:
+        if file_extension not in [".pdf", ".doc", ".docx",".jpeg",".png"]:
             raise HTTPException(status_code=400, detail="Unsupported document type. Only PDF, DOC, and DOCX files are allowed.")
         temp_file_path = os.path.join(tempfile.gettempdir(), secure_filename(file.filename))
         
